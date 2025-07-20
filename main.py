@@ -16,8 +16,7 @@
 
 
 unsorted_string = "fgjfogkfdp"
-sorted_string = "".join(sorted(unsorted_string))
-print(sorted_string)
+print("".join(sorted(unsorted_string)))
 
 
 
