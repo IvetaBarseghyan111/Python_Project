@@ -1,22 +1,24 @@
-# import re
-#
-# my_string = "1900"
-# result = re.findall(r"1[1-8]\d{2}", my_string) # Regex for correct year check.Should start from 1, then second value
-# # should be int between 1 and 8, check of other part is that should be only two int
-# print(result)
-#
-#
-# if my_string.isdigit() and len(my_string) < 5 :
-#         if my_string[0] == "1" and my_string[1] in "12345678":
-#            print(my_string)
-#         else:
-#             print("Year is not between 12 and 18th century")
-# else:
-#     print("Not a correct year")
+class MyBudget:
+    def __init__(self, first_name, last_name, balance, active_loan):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.balance = balance
+        self.active_loan = active_loan
+        self.expense = float(input("Please enter expense value "))
+
+    def payment(self):
+        if self.balance - self.expense >= 0:
+            print("Payment successfully done from balance")
+        elif self.balance < self.expense:
+            user_answer = input("Do you want to cover remaining amount from active_loan")
+            if user_answer == "yes":
+                (self.balance - self.expense) - self.active_loan
+                print("Payment successfully done from balance and active loan")
+            else:
+                print("Payment was cancelled")
 
 
-unsorted_string = "fgjfogkfdp"
-print("".join(sorted(unsorted_string)))
-
+customer1 = MyBudget("John", "Smith", 10,5)
+customer1.payment()
 
 
