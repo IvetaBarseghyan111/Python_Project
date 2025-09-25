@@ -1,34 +1,38 @@
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+from selenium import webdriver
+import time
 
-    def introduce(self):
-        print(f"Name is {self.name} and age is {self.age}.")
+def main_test(driver):
+    driver.get("https://www.armstqb.org/")
+    driver.maximize_window()
+    time.sleep(2)
 
+    chrome_title = driver.title
+    assert chrome_title == "ArmSTQB"
+    print("Test of title verify is passed")
 
-class Student(Person):
-    def __init__(self, name, age, grade):
-        super().__init__(name, age)
-        self.grade = grade
+    driver.switch_to.new_window("tab")
+    driver.get("https://www.armstqb.org/partners")
+    time.sleep(2)
 
-    def introduce(self):
-        print(f"Student name is {self.name}, age is {self.age} and grade is {self.grade}")
+    url = driver.current_url
+    assert url == "https://www.armstqb.org/partners"
+    print("Test of URL verify is passed")
+    driver.close()
 
+    driver.switch_to.window(driver.window_handles[0])
+    driver.minimize_window()
+    time.sleep(2)
 
-class Teacher(Person):
-    def __init__(self, name, age, subject):
-        super().__init__(name, age)
-        self.subject = subject
+    driver.quit()
 
-    def introduce(self):
-        print(f"Teacher's name is {self.name}, age is {self.age} and subject is {self.subject}")
+print("Test with Chrome browser")
+chrome_driver = webdriver.Chrome()
+main_test(chrome_driver)
 
+print("Test with Firefox browser")
+firefox_driver = webdriver.Firefox()
+main_test(firefox_driver)
 
-student1 = Student("John Smith", 10, 5.6)
-teacher1 = Teacher("Alex Smith", 20, "Math")
-
-
-my_list = [student1, teacher1]
-for i in my_list:
-    i.introduce()
+print("Test with Safari browser")
+safari_driver = webdriver.Safari()
+main_test(safari_driver)
