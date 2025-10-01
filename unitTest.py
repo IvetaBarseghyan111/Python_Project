@@ -38,4 +38,3 @@ class TestFund(unittest.TestCase):
         self.assertEqual(customer_balance, 0)
         self.assertEqual(customer_active_loan, 0)
 
-    

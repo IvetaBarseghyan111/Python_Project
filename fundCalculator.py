@@ -1,10 +1,10 @@
-def fund_calculator(self, customer_expense, include_loan=False):
-    if customer_expense <= self._customer_balance:
-        self._customer_balance -= customer_expense
-        return True
-    elif include_loan and customer_expense <= (self._customer_balance + self._customer_active_loan):
-        self._customer_active_loan = self._customer_active_loan - (customer_expense - self._customer_balance)
-        self._customer_balance = 0
-        return True
+def fund_calculator (customer_expense,customer_balance,customer_active_loan,include_loan=False):
+    if customer_expense <= customer_balance:
+        customer_balance -= customer_expense
+        return True, customer_balance, customer_active_loan
+    elif include_loan and customer_expense <= (customer_balance + customer_active_loan):
+        customer_active_loan = customer_active_loan - (customer_expense - customer_balance)
+        customer_balance = 0
+        return True, customer_balance, customer_active_loan
     else:
         return False
