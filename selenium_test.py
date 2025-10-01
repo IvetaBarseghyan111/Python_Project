@@ -14,7 +14,7 @@ try:
     element = wait.until(EC.element_to_be_clickable((By.XPATH, "//h5[text()='Elements']")))
     driver.execute_script("arguments[0].scrollIntoView(true);", element)
     element.click()
-    time.sleep(2)
+
 
     button = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[text()='Buttons']")))
     driver.execute_script("arguments[0].scrollIntoView(true);", button)
@@ -23,7 +23,7 @@ try:
     click_me_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[text()='Click Me']")))
     driver.execute_script("arguments[0].scrollIntoView(true);",click_me_button)
     click_me_button.click()
-    time.sleep(2)
+
 
     click_me_button_verify = driver.find_element(By.CSS_SELECTOR,"#dynamicClickMessage")
     assert click_me_button_verify.is_displayed()
@@ -31,7 +31,7 @@ try:
 
     driver.switch_to.new_window("tab")
     driver.get("https://demoqa.com/radio-button")
-    time.sleep(2)
+
 
     radio_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "label.custom-control-label["
                                                                    "for='impressiveRadio']")))
@@ -41,7 +41,7 @@ try:
     find_radio_button_verify = driver.find_element(By.CSS_SELECTOR, "span.text-success")
     assert find_radio_button_verify.text == "Impressive"
     print("Radio Button was clicked")
-    time.sleep(2)
+
 
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
@@ -55,5 +55,6 @@ try:
 
     for link in links_text:
         print(link.text)
+
 finally:
     driver.quit()
