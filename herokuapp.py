@@ -6,7 +6,7 @@ import time
 
 try:
     driver = webdriver.Chrome()
-    wait = WebDriverWait(driver, 14)
+    wait = WebDriverWait(driver, 10)
     driver.get("https://the-internet.herokuapp.com/dynamic_controls")
 
     # def remove_func():
