@@ -36,12 +36,17 @@ def test_link_click(driver,wait):
     link_click_func.open_link_page()
     link_click_func.click_link()
 
-# Test for implicit wait, assertion is done by changing implicit wait value in conftest.py.But as the problem of  webpage
+# Test for implicit wait, assertion is done by changing implicit wait value in conftest.py.But as the problem of webpage
 # it does not matter used wait or not button is clickable
 def test_click_implicit_wait(driver, wait):
     click_implicit_wait_func = web_element_click_page.ImplicitWait(driver, wait)
     click_implicit_wait_func.open_page_dynamic_properties()
     click_implicit_wait_func.dynamic_property_click()
     time.sleep(3)
+
+def test_non_exist_button_click(driver,wait):
+    non_exist_button_func = web_element_click_page.NonExistingButton(driver, wait)
+    non_exist_button_func.open_non_exist_button_page()
+    non_exist_button_func.non_exist_button_click()
 
 

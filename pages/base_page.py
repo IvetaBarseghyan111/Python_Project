@@ -25,3 +25,8 @@ class BasePage:
         element = self.driver.find_element(*locator)
         self.scroll_into_view(element)
         element.click()
+    
+    def send_keys(self,by,locator,text):
+        element = self.driver.find_element(by,locator)
+        element.send_keys(text)
+        
