@@ -67,4 +67,13 @@ class ImplicitWait(BasePage):
     def dynamic_property_click(self):
         self.element_click_with_implicit_wait(self.ENABLE_AFTER)
 
+class NonExistingButton(BasePage):
+    NON_EXIST_BUTTON = (By.ID, "ghostButton")
+
+    def open_non_exist_button_page(self):
+        self.open_page("https://demoqa.com/automation-practice-form")
+
+    def non_exist_button_click(self):
+        self.element_click(self.NON_EXIST_BUTTON)
+
 
