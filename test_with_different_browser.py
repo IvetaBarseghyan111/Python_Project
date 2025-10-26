@@ -25,6 +25,10 @@ def main_test(driver):
 
     driver.quit()
 
+def test_title(driver,wait):
+    driver.get("https://demoqa.com/")
+    assert driver.title == "DEMOQA", print("Success")
+
 print("Test with Chrome browser")
 chrome_driver = webdriver.Chrome()
 main_test(chrome_driver)

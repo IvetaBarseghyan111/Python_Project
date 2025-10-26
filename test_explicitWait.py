@@ -9,7 +9,7 @@ try:
     driver.maximize_window()
     wait = WebDriverWait(driver, 10)
     driver.get("https://the-internet.herokuapp.com/dynamic_loading/1")
-    start_button = driver.find_element(By. XPATH, "//button[text()='Start']")
+    start_button = driver.find_element(By.XPATH, "//button[text()='Start']")
     start_button.click()
     success_message = wait.until(EC.visibility_of_element_located((By.XPATH, "//h4[text()='Hello World!']")))
     print("Dynamic content loaded successfully.")
@@ -30,7 +30,7 @@ try:
     result_text = driver.find_element(By.ID, "result")
     print(result_text.text)
 
-    driver.get("https://demoqa.com/automation-practice-form.")
+    driver.get("https://demoqa.com/automation-practice-form")
     non_existing_element = driver.find_element(By.ID, "ghostButton")
     non_existing_element.click()
 
